@@ -3,6 +3,7 @@ import { Card, Container } from "react-bootstrap";
 import { BsPlus, BsFillPersonFill} from "react-icons/bs";
 import styled from "styled-components";
 import Modal from "../shared/Modal";
+import AddPerson from "./actions/AddPerson";
 
 function People(props) {
   // const container = styled.div`
@@ -34,7 +35,7 @@ const showModal = () =>{
   return (
     <Container>
     <Modal heading="Add person" isOpen={isOpen} setIsOpen={setIsOpen}>
-        <p>Hello kofi</p>
+       <AddPerson />
     </Modal>
       <div className="people_list__box">
         <div className="card__box">

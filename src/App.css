@@ -99,3 +99,24 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+.css-2b097c-container {
+  margin-top: 5px;
+}
+
+
+.css-1uccc91-singleValue, .css-1wa3eu0-placeholder{
+  top:28% !important;
+}
+
+.css-1okebmr-indicatorSeparator{
+  display: none !important;
+}
+
+.css-tlfecz-indicatorContainer {
+  color: #26292C;
+  padding: 3px;
+  margin-top: -5px;
+}
+
+
