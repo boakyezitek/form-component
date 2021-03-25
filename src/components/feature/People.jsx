@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Container } from "react-bootstrap";
 import { BsPlus, BsFillPersonFill} from "react-icons/bs";
 import styled from "styled-components";
+import Modal from "../shared/Modal";
 
 function People(props) {
   // const container = styled.div`
@@ -13,6 +14,7 @@ function People(props) {
   // const maincard = styled.div`
   //     min-width:200px;
   // `
+const [isOpen, setIsOpen] = useState(false);
 const [people] = useState([
     {name:"Brian Carlson", position:"Senior Project Manager"},
     {name:"Daniel St John Moore", position:"Senior Estimator"},
@@ -25,8 +27,15 @@ const [people] = useState([
     {name:"Khalid Salha", position:"Project Manager"},
     {name:"Lee Lohr", position:"Senior Estimator"},
 ])
+
+const showModal = () =>{
+    setIsOpen(true);
+}
   return (
     <Container>
+    <Modal heading="Add person" isOpen={isOpen} setIsOpen={setIsOpen}>
+        <p>Hello kofi</p>
+    </Modal>
       <div className="people_list__box">
         <div className="card__box">
           <div className="card__box__body">
@@ -35,7 +44,7 @@ const [people] = useState([
                 <h5>People (20)</h5>
               </div>
 
-              <div className="plus__icon_box">
+              <div className="plus__icon_box" onClick={showModal}>
                 <BsPlus className="plus__icon"/>
               </div>
             </div>

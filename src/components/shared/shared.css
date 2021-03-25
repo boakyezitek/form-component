@@ -1,0 +1,95 @@
+.Modal {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    right: 40px;
+    background-color: #fff;
+    width: 400px;
+    margin: auto;
+    border:none;
+    outline: none;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity .15s linear;
+    background-color: rgba(0, 0, 0, 0.255);
+   
+  }
+
+  .modal__heading{
+      padding-right: 12px;
+      padding-left: 12px;
+      background-color: #f6f7f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ccc;
+  }
+
+  .modal__heading h3{
+    font-family: 'Roboto Condensed', sans-serif;;
+  }
+  .modal__close__icon{
+      font-size: 25px;
+      cursor: pointer;
+  }
+
+  .modal__body{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 12px;
+      padding-right: 12px;
+  }
+
+  .modal__footer{
+    padding-right: 12px;
+    padding-left: 12px;
+    background-color: #f6f7f9;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 1px solid #ccc;
+  }
+
+  .modal__btn__view{
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      gap:0.5em;
+      align-items: center;
+  }
+  .app__btn{
+      width: auto;
+      display: inline-block;
+      border-radius: 3px;
+      padding-left: 25px;
+      padding-right: 25px;
+      font-weight: 500;
+      cursor: pointer;
+  }
+
+  .btn__small{
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+  } 
+
+  .green{
+      background-color: #4BA34F;
+      color: #fff;
+  }
+
+  .blue{
+    background-color: #427BDB;
+    color: #fff;
+}
+
+  .white{
+    background-color: #fff;
+    color: #434547;
+    border: 1px solid #ccc;
+}
