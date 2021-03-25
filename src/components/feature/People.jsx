@@ -22,11 +22,7 @@ const [people] = useState([
     {name:"Davis Harfelder", position:"Project Manager"},
     {name:"Eric Sapiono", position:"Estimator"},
     {name:"Gareth Jones", position:""},
-    {name:"Jackie Sun", position:"Estimator"},
-    {name:"Jason Enticknap", position:"Estimator"},
-    {name:"Khal Diab, P.Eng", position:"Project Manager"},
-    {name:"Khalid Salha", position:"Project Manager"},
-    {name:"Lee Lohr", position:"Senior Estimator"},
+  
 ])
 
 const showModal = () =>{

@@ -21,6 +21,78 @@
    
   }
 
+  .main_card__box__view{
+      background-color: #fff;
+      box-shadow: 0px 3px 10px #ccc;
+  }
+
+  .card__close__icon{
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;;
+}
+
+
+.card__heading{
+    padding-right: 12px;
+    padding-left: 12px;
+    background-color: #fefeff;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+}
+
+.card__heading h3{
+  font-family: 'Roboto Condensed', sans-serif;;
+}
+
+.card__body{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.no__space {
+    padding-left: 0 !important;
+    padding-right:0 !important;
+}
+
+.card__footer{
+  padding-right: 12px;
+  padding-left: 12px;
+  background-color: #fefeff;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px solid #ccc;
+}
+
+.card__btn__view{
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap:0.5em;
+    align-items: center;
+}
+
+.card__link__box{
+    display: flex;
+    gap: 0.1em;
+    align-items: center;
+    color: #427BDB;
+    cursor: pointer;
+}
+.card__link__icon{
+    font-size: 20px;
+}
+.link__text{
+    color: #427BDB;
+    margin-right: 0;
+    font-size: 14px;
+}
+
   .modal__heading{
       padding-right: 12px;
       padding-left: 12px;
@@ -72,26 +144,94 @@
       cursor: pointer;
   }
 
-  .btn__small{
+  .app__btn.btn__small{
       height: 30px;
       line-height: 30px;
       font-size: 12px;
       text-align: center;
   } 
 
-  .green{
+  .app__btn.green{
       background-color: #4BA34F;
       color: #fff;
   }
 
-  .blue{
+  .app__btn.blue{
     background-color: #427BDB;
     color: #fff;
 }
 
-  .white{
+.app__btn.white{
     background-color: #fff;
     color: #434547;
     border: 1px solid #ccc;
+    
 }
 
+.label__main__box{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+}
+
+.label__box{
+    padding: 3px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.label__icons{
+    display: flex;
+    gap: 0.8em;
+    color:rgb(138, 138, 138);
+    display: none;
+}
+
+.label__main__box:hover{
+    background-color: #317AE2;
+}
+.label__main__box:hover .label__icons{
+    display: inherit;
+    color: #fff;
+}
+
+.label__box.green{
+    background-color: #08A742;
+    color: #fff;
+}
+.label__box.red{
+    background-color: #F94839;
+    color: #fff;
+    
+}
+
+.label__box.blue{
+    background-color: #317AE2;
+    color: #fff;
+    
+}
+
+.label__box.yellow{
+    background-color: #FFCC00;
+    color: #000;
+    
+    
+}
+
+.label__box.gray{
+    background-color: #DCDDDD;
+    color: #000;
+
+}
+
+.label__box.violet{
+    background-color: #721EA9;
+    color: #fff;
+}
