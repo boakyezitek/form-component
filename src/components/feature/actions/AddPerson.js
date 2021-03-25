@@ -1,51 +1,11 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import styled from 'styled-components';
 import {BsBuilding} from "react-icons/bs";
 import Select from "react-select";
+import { FormGroup, Label, TextInput, TextInputBox, Icon } from '../../styles/Form';
 
 function AddPerson(props) {
-    const FormGroup = styled.div`
-       margin-bottom:10px
-    `
-    const Label = styled.label`
-    color: #434547;
-      font-size:14px;
-      font-weight:500;
-    `
-    const TextInputBox = styled.div`
-    display: flex;
-    align-items:center;
-    gaps:0.7em;
-    height: 28px;
-    border-radius:3px;
-    width:100%;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    margin-top:5px;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    `
-    const TextInput = styled.input`
-     flex:1;
-     border:none !important;
-     background: none !important;
-     padding-left:5px;
-     &:focus{
-         outline:none !important;
-     }
-    `
-    const Icon = styled.div`
-       padding-left:5px;
-       height:100%;
-       display:flex;
-       justify-content:center;
-       align-items:center;
-    `
-
-    const LabelBox = styled.div`
-     margin-bottom:"5px";
-    `
+    
 
     const colourStyles = {
         control: (styles) => ({
