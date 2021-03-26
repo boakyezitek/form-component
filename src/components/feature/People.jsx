@@ -52,7 +52,6 @@ const handleSubmit = () => {
        formik.handleSubmit();
 }
 
-console.log(people);
   return (
     <div>
     <Modal heading="Add person" handleSubmit={handleSubmit} isOpen={isOpen} setIsOpen={setIsOpen}>

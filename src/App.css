@@ -115,16 +115,16 @@
   display: none !important;
 }
 
-/* .css-tlfecz-indicatorContainer {
+/* /* .css-tlfecz-indicatorContainer {
   color: #26292C;
   padding: 3px;
   margin-top: -5px;
-}
+} */
 
 .check__icon{
   color:#457DDB;
   font-size: 12px;
-} */
+} 
 
 .label__main__box:hover .check__icon{
 color:#fff;
