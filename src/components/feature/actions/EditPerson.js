@@ -87,7 +87,7 @@ function EditPerson({label, formik, editData, people}) {
           name="firstname"
           type="text"
           onChange={formik.handleChange}
-          value={formik.values.firstname}
+          value={formik.values.firstname || ""}
         />
         </TextInputBox>
         
@@ -105,7 +105,7 @@ function EditPerson({label, formik, editData, people}) {
           name="lastname"
           type="text"
           onChange={formik.handleChange}
-          value={formik.values.lastname}
+          value={formik.values.lastname || ""}
         />
         </TextInputBox>
        
@@ -124,7 +124,7 @@ function EditPerson({label, formik, editData, people}) {
           name="position"
           type="text"
           onChange={formik.handleChange}
-          value={formik.values.position}
+          value={formik.values.position || ""}
         />
         </TextInputBox>
         </FormGroup>
@@ -153,7 +153,7 @@ function EditPerson({label, formik, editData, people}) {
          name="organization"
          type="text"
          onChange={formik.handleChange}
-         value={formik.values.organization}
+         value={formik.values.organization || ""}
         />
         </TextInputBox>
         </FormGroup>
@@ -166,7 +166,7 @@ function EditPerson({label, formik, editData, people}) {
           name="cell_phone"
           type="text"
           onChange={formik.handleChange}
-          value={formik.values.cell_phone}
+          value={formik.values.cell_phone || ""}
         />
         </TextInputBox>
         
@@ -185,7 +185,7 @@ function EditPerson({label, formik, editData, people}) {
           name="other_phone"
           type="text"
           onChange={formik.handleChange}
-          value={formik.values.other_phone}
+          value={formik.values.other_phone || ""}
         />
         </TextInputBox>
         </FormGroup>
@@ -198,7 +198,7 @@ function EditPerson({label, formik, editData, people}) {
           name="email"
           type="email"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.email || ""}
         />
         </TextInputBox>
        

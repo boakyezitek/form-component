@@ -8,10 +8,10 @@ import EditPerson from "./actions/EditPerson";
 
 function People({ label }) {
   const [people, setPeople] = useState([]);
-  const id = Math.floor(Math.random() * Math.floor(500));
+  const [id, setId] = useState(null);
   const formik = useFormik({
     initialValues: {
-      id: id,
+      id:"",
       firstname: "",
       lastname: "",
       position: "",
@@ -39,7 +39,7 @@ function People({ label }) {
       setPeople([...people, values]);
       resetForm();
       setIsOpen(false);
-      setEditModal(true);
+      setEditModal(false);
     },
   });
 
@@ -103,6 +103,11 @@ function People({ label }) {
     },
   });
 
+
+  useEffect(() => {
+   const iddata = Math.floor(Math.random() * Math.floor(500))
+   formik.values.id = iddata;
+  }, [isOpen])
   useEffect(() => {
     editFormik.setFieldValue("id", editData.id);
     editFormik.setFieldValue("firstname", editData.firstname);
@@ -112,11 +117,13 @@ function People({ label }) {
     editFormik.setFieldValue("cell_phone", editData.cell_phone);
     editFormik.setFieldValue("other_phone", editData.other_phone);
     editFormik.setFieldValue("email", editData.email);
-  },[editData, people])
+  },[editData])
 
   const handleEditSubmit = () => {
       editFormik.handleSubmit();
   }
+
+  console.log(editData, people);
   return (
     <div>
       <Modal
