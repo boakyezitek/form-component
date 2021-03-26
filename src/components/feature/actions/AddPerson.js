@@ -84,11 +84,11 @@ function AddPerson({label, formik}) {
           value={formik.values.firstname}
         />
         </TextInputBox>
-        <ErrorText>
+        
         {formik.touched.firstname && formik.errors.firstname? (
-         <div>{formik.errors.firstname}</div>
+         <ErrorText>{formik.errors.firstname}</ErrorText>
        ) : null}
-        </ErrorText>
+        
         </FormGroup>
 
         <FormGroup>
@@ -102,11 +102,11 @@ function AddPerson({label, formik}) {
           value={formik.values.lastname}
         />
         </TextInputBox>
-        <ErrorText>
+       
         {formik.touched.lastname && formik.errors.lastname ? (
-         <div>{formik.errors.lastname}</div>
+          <ErrorText>{formik.errors.lastname} </ErrorText>
        ) : null}
-        </ErrorText>
+       
         </FormGroup>
 
 
@@ -163,11 +163,11 @@ function AddPerson({label, formik}) {
           value={formik.values.cell_phone}
         />
         </TextInputBox>
-        <ErrorText>
+        
         {formik.touched.cell_phone && formik.errors.cell_phone ? (
-         <div>{formik.errors.cell_phone}</div>
+         <ErrorText>{formik.errors.cell_phone} </ErrorText>
        ) : null}
-        </ErrorText>
+       
         </FormGroup>
 
 
@@ -195,11 +195,11 @@ function AddPerson({label, formik}) {
           value={formik.values.email}
         />
         </TextInputBox>
-        <ErrorText>
+       
         {formik.touched.email && formik.errors.email ? (
-         <div>{formik.errors.email}</div>
+          <ErrorText>{formik.errors.email} </ErrorText>
        ) : null}
-        </ErrorText>
+       
         </FormGroup>
 
         <FormGroup>
