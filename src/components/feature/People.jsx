@@ -29,7 +29,7 @@ function People({label}) {
               .max(20, 'Must be 20 characters or less')
               .required('Required'),
             email: Yup.string().email('Invalid email address').required('Required'),
-            cell_phone: Yup.number()
+            cell_phone: Yup.string()
               .max(15, 'Must be 15 characters or less')
               .required('Required'),
           }),
