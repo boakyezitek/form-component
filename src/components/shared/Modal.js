@@ -9,7 +9,7 @@ function Modal({children, heading, isOpen, setIsOpen, handleSubmit}) {
     }
     return (
         <React.Fragment>
-            <ReactModal 
+            <ReactModal ariaHideApp={false}
             className="Modal"
             overlayClassName="Overlay"
              isOpen={isOpen}>

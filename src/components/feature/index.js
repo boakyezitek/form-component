@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import CardBox from "../shared/CardBox";
 import LabelBox from "../shared/LabelBox";
 import People from "./People";
-import { BsPencil, BsCheck, BsFillTagFill, BsFillCaretDownFill } from "react-icons/bs";
+import {
+  BsPencil,
+  BsCheck,
+  BsFillTagFill,
+  BsFillCaretDownFill,
+} from "react-icons/bs";
 import { FaCheck, FaEquals } from "react-icons/fa";
-import { useFormik} from "formik";
+import { useFormik } from "formik";
 import { FormGroup, TextInput, TextInputBox } from "../styles/Form";
 import { LabelMainBox, LabelBoxView } from "../styles/Label";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 import {
   Container,
@@ -19,6 +24,8 @@ import {
 } from "../styles/App";
 
 function Main(props) {
+  const [labelListBox, setLabelListBox] = useState(false);
+  const [addLabelListBox, setAddLabelListBox] = useState(false);
   const [label, setLabel] = useState([
     { id: "#DCDDDD", color: "gray", name: "No Label" },
     // { id: "#317AE2;", color: "primary", name: "Cold Lead" },
@@ -39,11 +46,12 @@ function Main(props) {
   const labelForm = useFormik({
     initialValues: { id: "#DCDDDD", color: "gray", name: "" },
     validationSchema: Yup.object({
-        name: Yup.string()
-          .required('Label field required'),
-      }),
+      name: Yup.string().required("Label field required"),
+    }),
     onSubmit: (values, { resetForm }) => {
       setLabel([...label, values]);
+      setAddLabelListBox(false);
+      setLabelListBox(true);
       resetForm();
     },
   });
@@ -57,37 +65,28 @@ function Main(props) {
     labelForm.values.color = filterId?.[0].color;
   };
 
-  const [labelListBox, setLabelListBox] = useState(false);
-  const [addLabelListBox, setAddLabelListBox] = useState(false);
   const handleAddLabel = () => {
-        labelForm.handleSubmit();
-        if(labelForm.touched.name && labelForm.errors.name){
-         return null;
-        }else{
-            setAddLabelListBox(false);
-            setLabelListBox(true)
-        }
-        
-}
+    labelForm.handleSubmit();
+  };
   const handleShowLabelBox = () => {
-      if(!labelListBox) {
-          setLabelListBox(true);
-      }else if(labelListBox){
-          setLabelListBox(false);
-      }
-  }
+    if (!labelListBox) {
+      setLabelListBox(true);
+    } else if (labelListBox) {
+      setLabelListBox(false);
+    }
+  };
 
   const handleAddLabelBox = () => {
-      setAddLabelListBox(true);
-      setLabelListBox(false);
-  }
+    setAddLabelListBox(true);
+    setLabelListBox(false);
+  };
 
   const handleOnCancel = () => {
     setAddLabelListBox(false);
     setLabelListBox(true);
-  }
+  };
 
-  const [singleLabel, setSingleLabel]= useState(null);
+  const [singleLabel, setSingleLabel] = useState(null);
   const [hideTag, setHideTag] = useState(false);
   const [activeLabel, setActiveNoLabel] = useState("");
 
@@ -98,10 +97,10 @@ function Main(props) {
     setHideTag(true);
     setActiveNoLabel(name);
 
-    if(filterId?.[0].name === "No Label"){
-        setHideTag(false);
+    if (filterId?.[0].name === "No Label") {
+      setHideTag(false);
     }
-  }
+  };
   return (
     <div>
       <Container>
@@ -110,41 +109,61 @@ function Main(props) {
             <UserLabelText>
               Aaron Dugard - <span>Owner</span>
             </UserLabelText>
-            {!hideTag ? 
-            <LabelTagIcon onClick={handleShowLabelBox}>
-            <BsFillTagFill/>
-            </LabelTagIcon>
-            : ""}
-            
-            {singleLabel === null ? "" : <>
-               {!hideTag ? "" : 
-               <LabelBox color={singleLabel?.color}>{singleLabel?.name}</LabelBox>
-               }
-            
-    </>
-            }
-            {hideTag ? 
-             <LabelTagIcon onClick={handleShowLabelBox}>
-             <BsFillCaretDownFill />
-         </LabelTagIcon>
-            : ""}
-           
+            {!hideTag ? (
+              <LabelTagIcon onClick={handleShowLabelBox}>
+                <BsFillTagFill />
+              </LabelTagIcon>
+            ) : (
+              ""
+            )}
+
+            {singleLabel === null ? (
+              ""
+            ) : (
+              <>
+                {!hideTag ? (
+                  ""
+                ) : (
+                  <LabelBox color={singleLabel?.color}>
+                    {singleLabel?.name}
+                  </LabelBox>
+                )}
+              </>
+            )}
+            {hideTag ? (
+              <LabelTagIcon onClick={handleShowLabelBox}>
+                <BsFillCaretDownFill />
+              </LabelTagIcon>
+            ) : (
+              ""
+            )}
           </UserLabel>
 
           <DropDownBox>
             {labelListBox ? (
-              <CardBox heading="Label" withLink noGutter linkTitle="Add Label" onClick={handleAddLabelBox}>
+              <CardBox
+                heading="Label"
+                withLink
+                noGutter
+                linkTitle="Add Label"
+                onClick={handleAddLabelBox}
+              >
                 {label.map((data, index) => (
-                  <div className="label__main__box" key={index} onClick={() => handleSelectLabel(data.name)}>
+                  <div
+                    className="label__main__box"
+                    key={index}
+                    onClick={() => handleSelectLabel(data.name)}
+                  >
                     <LabelBox color={data.color}>{data.name}</LabelBox>
                     <div className="label__icons">
                       <BsPencil />
                       <FaEquals />
                     </div>
-                    {data.name === activeLabel ? 
-                     <FaCheck className="check__icon"/>
-                    : ""}
-                   
+                    {data.name === activeLabel ? (
+                      <FaCheck className="check__icon" />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 ))}
               </CardBox>
@@ -158,7 +177,6 @@ function Main(props) {
                 withButtons
                 onClick={handleAddLabel}
                 cancelForm={handleOnCancel}
-                
               >
                 <form>
                   <FormGroup>
@@ -170,14 +188,12 @@ function Main(props) {
                         onChange={labelForm.handleChange}
                         value={labelForm.values.name}
                         placeholder="Label name"
-                        
                       />
-                     
                     </TextInputBox>
                     <ErrorText>
-                    {labelForm.touched.name && labelForm.errors.name ? (
-         <div>{labelForm.errors.name}</div>
-       ) : null}
+                      {labelForm.touched.name && labelForm.errors.name ? (
+                        <div>{labelForm.errors.name}</div>
+                      ) : null}
                     </ErrorText>
                   </FormGroup>
                   <LabelMainBox>
@@ -199,7 +215,7 @@ function Main(props) {
           </DropDownBox>
         </div>
       </Container>
-      <People />
+      <People label={label} />
     </div>
   );
 }

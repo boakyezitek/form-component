@@ -96,6 +96,8 @@
   .modal__heading{
       padding-right: 12px;
       padding-left: 12px;
+      padding-top: 6px;
+      padding-bottom: 6px;
       background-color: #f6f7f9;
       display: flex;
       justify-content: space-between;
@@ -116,6 +118,10 @@
       padding-bottom: 20px;
       padding-left: 12px;
       padding-right: 12px;
+      height: 100%;
+      max-height: 75vh;
+      overflow: auto;
+     
   }
 
   .modal__footer{
