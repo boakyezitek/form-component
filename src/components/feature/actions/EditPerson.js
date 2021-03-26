@@ -5,7 +5,7 @@ import { FormGroup, Label, TextInput, TextInputBox, Icon } from '../../styles/Fo
 import LabelBox from '../../shared/LabelBox';
 import { ErrorText } from '../../styles/App';
 
-function EditPerson({label, formik, editData}) {
+function EditPerson({label, formik, editData, people}) {
     const [selectLabelInput, setSelectLabelInput] = useState("");
     const [selectOwnerInput, setSelectOwnerInput] = useState("");
     const [selectVisibleInput, setSelectVisibleInput] = useState("");
@@ -66,10 +66,16 @@ function EditPerson({label, formik, editData}) {
       };
 
       useEffect(() => {
-        formik.values.label = selectLabelInput.selectedGroup;
-        formik.values.owner = selectOwnerInput.selectedGroup;
-        formik.values.visible_to = selectVisibleInput.selectedGroup;
-      }, [formik.values, selectLabelInput.selectedGroup, selectOwnerInput.selectedGroup, selectVisibleInput.selectedGroup])
+        formik.setFieldValue("label", selectLabelInput.selectedGroup);
+      }, [selectLabelInput.selectedGroup])
+
+      useEffect(() => {
+        formik.setFieldValue("owner",selectOwnerInput.selectedGroup);
+      }, [selectOwnerInput.selectedGroup])
+
+      useEffect(() => {
+        formik.setFieldValue("visible_to",selectVisibleInput.selectedGroup);
+      }, [selectVisibleInput.selectedGroup])
 
       return (
         <form>

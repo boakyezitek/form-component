@@ -67,7 +67,7 @@ function People({ label }) {
 
   const editFormik = useFormik({
     initialValues: {
-        id: id,
+        id: "",
         firstname: "",
         lastname: "",
         position: "",
@@ -92,28 +92,41 @@ function People({ label }) {
         .required("Required"),
     }),
     onSubmit: (values, { resetForm }) => {
-      setPeople([...people, values]);
-      resetForm();
+      let newArr = [...people];
+      people.map((data, index) => {
+          return newArr[index] = values;
+      })
+      setPeople(newArr);
       setIsOpen(false);
     },
   });
 
   useEffect(() => {
-    editFormik.setValues(editData)
-  },[editData])
+    editFormik.setFieldValue("id", editData.id);
+    editFormik.setFieldValue("firstname", editData.firstname);
+    editFormik.setFieldValue("lastname", editData.lastname);
+    editFormik.setFieldValue("position", editData.position);
+    editFormik.setFieldValue("organization", editData.organization);
+    editFormik.setFieldValue("cell_phone", editData.cell_phone);
+    editFormik.setFieldValue("other_phone", editData.other_phone);
+    editFormik.setFieldValue("email", editData.email);
+  },[editData, people])
 
+  const handleEditSubmit = () => {
+      editFormik.handleSubmit();
+  }
   return (
     <div>
       <Modal
-        heading={showEditModal === true ? "Edit Person" : "Add P"}
-        handleSubmit={handleSubmit}
+        heading={showEditModal === true ? "Edit Person" : "Add Person"}
+        handleSubmit={showEditModal === true ? handleEditSubmit : handleSubmit}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       >
         {showEditModal === false ? (
           <AddPerson formik={formik} label={label} />
         ) : (
-          <EditPerson editData={editData} formik={editFormik} label={label} />
+          <EditPerson people={people} editData={editData} formik={editFormik} label={label} />
         )}
       </Modal>
       <div className="people_list__box">
