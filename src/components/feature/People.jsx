@@ -39,6 +39,7 @@ function People({ label }) {
       setPeople([...people, values]);
       resetForm();
       setIsOpen(false);
+      setEditModal(true);
     },
   });
 
@@ -98,6 +99,7 @@ function People({ label }) {
       })
       setPeople(newArr);
       setIsOpen(false);
+      setEditModal(false);
     },
   });
 
