@@ -5,7 +5,7 @@ import { FormGroup, Label, TextInput, TextInputBox, Icon } from '../../styles/Fo
 import LabelBox from '../../shared/LabelBox';
 import { ErrorText } from '../../styles/App';
 
-function AddPerson({label, formik}) {
+function EditPerson({label, formik, editData}) {
     const [selectLabelInput, setSelectLabelInput] = useState("");
     const [selectOwnerInput, setSelectOwnerInput] = useState("");
     const [selectVisibleInput, setSelectVisibleInput] = useState("");
@@ -28,7 +28,7 @@ function AddPerson({label, formik}) {
 
       const instantLabel = [ {
           options:label.map((item, i) => (
-            {id:item.id, color:item.color,name:item.name, value: item.name, label:<div><LabelBox color={item?.color}>{item?.name}</LabelBox></div> }
+            { value: item.name, label:<div><LabelBox color={item?.color}>{item?.name}</LabelBox></div> }
           ))
       }
       ];
@@ -126,7 +126,7 @@ function AddPerson({label, formik}) {
        <FormGroup>
        <Label htmlFor="label">Label</Label>
        <Select styles={colourStyles}
-                            value={selectLabelInput.selectedGroup}
+                            defaultValue={{ value: editData?.label?.name, label:<div><LabelBox color={editData?.label?.color}>{editData?.label?.name}</LabelBox></div> }}
                             onChange={handleLabelSelectGroup}
                             options={instantLabel}
                             isMulti={false}
@@ -205,7 +205,7 @@ function AddPerson({label, formik}) {
         <FormGroup>
        <Label htmlFor="owner">Owner</Label>
        <Select styles={colourStyles}
-                            value={selectOwnerInput.selectedGroup}
+                            defaultValue={{value:editData?.owner?.value, label:editData?.owner?.label}}
                             onChange={handleOwnerSelectGroup}
                             options={ownersLabel}
                             isMulti={false}
@@ -217,7 +217,7 @@ function AddPerson({label, formik}) {
        <FormGroup>
        <Label htmlFor="visible_to">Visible to</Label>
        <Select styles={colourStyles}
-                            value={selectVisibleInput.selectedGroup}
+                            defaultValue={{value:editData?.visible_to?.value, label:editData?.visible_to?.label}}
                             onChange={handleVisibleSelectGroup}
                             options={visibleLabel}
                             isMulti={false}
@@ -229,4 +229,4 @@ function AddPerson({label, formik}) {
       </form>
       );
     };
-export default AddPerson;
+export default EditPerson;
