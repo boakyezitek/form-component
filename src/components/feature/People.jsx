@@ -93,11 +93,10 @@ function People({ label }) {
         .required("Required"),
     }),
     onSubmit: (values, { resetForm }) => {
-      let newArr = [...people];
-      people.map((data, index) => {
-          return newArr[index] = values;
-      })
-      setPeople(newArr);
+       const arrIndex = people.findIndex((x) => x.id === editData.id);
+       let newArr = [...people];
+       newArr[arrIndex] = values;
+       setPeople(newArr);
       setIsOpen(false);
       setEditModal(false);
     },
